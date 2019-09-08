@@ -233,6 +233,7 @@
         <module>unifymq-datakeeper</module>
         <module>unifymq-register</module>
         <module>unifymq-0-console</module>
+        <module>unifymq-1-group</module>
     </modules>
 
     <dependencyManagement>
