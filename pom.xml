@@ -235,6 +235,7 @@
         <module>unifymq-tools</module>
         <module>unifymq-remote</module>
         <module>unifymq-biz</module>
+        <module>unifymq-utils</module>
 
     </modules>
 
@@ -252,6 +253,11 @@
                 <version>4.5.15</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.zyhui98</groupId>
+                <artifactId>unifymq-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
