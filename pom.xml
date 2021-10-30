@@ -233,6 +233,9 @@
         <module>unifymq-datakeeper</module>
         <module>unifymq-register</module>
         <module>unifymq-tools</module>
+        <module>unifymq-remote</module>
+        <module>unifymq-biz</module>
+
     </modules>
 
     <dependencyManagement>
@@ -241,6 +244,12 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>4.5.15</version>
             </dependency>
 
 

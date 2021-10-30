@@ -40,3 +40,7 @@ out
 .soa/
 logs/
 .cerberus.report
+*.properties
+*.yml
+*.setting
+
