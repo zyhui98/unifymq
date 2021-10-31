@@ -12,6 +12,11 @@
     <artifactId>express-wp</artifactId>
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.github.zyhui98</groupId>
             <artifactId>unifymq-utils</artifactId>
         </dependency>

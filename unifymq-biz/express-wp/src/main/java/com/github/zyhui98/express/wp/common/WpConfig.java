@@ -7,6 +7,8 @@ import cn.hutool.setting.Setting;
  * Created on 2021/10/30
  */
 public class WpConfig {
+    public static final String AUTHNAME = "authName";
+    public static final String PRODUCTCODE = "productCode";
     public static final String API_ORDERSTATUS = "orderStatus";
     public static final String API_ORDERCONTRACTURL= "orderContractUrl";
     public static final String API_ORDERCREATE= "orderCreate";
