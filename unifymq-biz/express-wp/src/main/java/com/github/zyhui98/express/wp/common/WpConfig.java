@@ -11,9 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created on 2021/10/30
  */
 public class WpConfig {
+    private static final WpConfig INSTANCE = new WpConfig();
     public static final String AUTHNAME = "authName";
     public static final String PRODUCTCODE = "productCode";
     public static final String API_ORDERSTATUS = "orderStatus";
+    public static final String API_ORDERDETAILS = "orderDetails";
     public static final String API_ORDERCONTRACTURL= "orderContractUrl";
     public static final String API_ORDERCREATE= "orderCreate";
     public static final String WP_RSA_PUBLICKEY = "wpPublicKey";

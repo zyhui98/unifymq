@@ -2,6 +2,7 @@ package com.github.zyhui98.express.wp;
 
 import cn.hutool.json.JSONUtil;
 import com.github.zyhui98.express.wp.common.WpConfig;
+import com.sf.wp.sdk.dto.OrderDetailParamDTO;
 import com.sf.wp.sdk.dto.OrderFileQueryDTO;
 import com.sf.wp.sdk.dto.OrderStatusParamsDTO;
 import com.sf.wp.sdk.dto.create.OrderCreateRequestDTO;
@@ -11,6 +12,7 @@ import com.sf.wp.sdk.dto.create.OrderLogisticsBaseInfo;
 import com.sf.wp.sdk.server.impl.WpOrderServiceImpl;
 import com.sf.wp.sdk.vo.CreateOrderResponseVO;
 import com.sf.wp.sdk.vo.QueryStatusResponseVO;
+import com.sf.wp.sdk.vo.WpOrderDetailVO;
 import com.sf.wp.sdk.vo.WsContractInfoVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -55,13 +57,19 @@ public class WpMain {
 
     public static void main(String[] args) {
         init();
-        //queryStatus("XN1635921691904");
-        getFile("XN1636360040643");
+        queryStatus("XN1636821244341");
+        //getFile("XN1636360040643");
         //final CreateOrderResponseVO createOrderResponseVO = orderCreate();
         //if (!createOrderResponseVO.getData().getSuccessList().isEmpty()){
         //    final String merchantOrderNo = createOrderResponseVO.getData().getSuccessList().get(0).getMerchantOrderNo();
         //    log.info("merchantOrderNo:{}", merchantOrderNo);
+        //    try {
+        //        TimeUnit.SECONDS.sleep(1);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
         //    queryStatus(merchantOrderNo);
+        //    queryDetail(merchantOrderNo);
         //    getFile(merchantOrderNo);
         //}
         //[main] INFO com.github.zyhui98.express.wp.WpMain - CreateOrderResponseVO:CreateOrderResponseVO{code='0', message='成功', data=OrderCreateResultDTO{successList=[CreateOrderSuccDTO{merchantOrderNo='xn000001', wpOrderNo='WP211101000009', failureReason=''}], failureList=[]}}
@@ -89,6 +97,20 @@ public class WpMain {
         QueryStatusResponseVO queryStatusResponseVO = wpOrderService.queryStatus(WpConfig.getStr("api", WpConfig.API_ORDERSTATUS), queryParamsDTO);
         log.info("queryStatusResponseVO:{}", JSONUtil.toJsonStr(queryStatusResponseVO));
         return queryStatusResponseVO;
+    }
+
+    public static WpOrderDetailVO queryDetail(String merchantOrderNo) {
+        // 实例化WpOrderServiceImpl工具类
+        WpOrderServiceImpl wpOrderService = new WpOrderServiceImpl();
+        // 构建传参
+        OrderDetailParamDTO queryParamsDTO = new OrderDetailParamDTO();
+        List<String> merchantOrderNoList = new ArrayList<>();
+        merchantOrderNoList.add(merchantOrderNo);
+        queryParamsDTO.setMerchantOrderNos(merchantOrderNoList);
+        // 执行方法
+        final WpOrderDetailVO wpOrderDetailVO = wpOrderService.queryOrderDetail(WpConfig.getStr("api", WpConfig.API_ORDERDETAILS), queryParamsDTO);
+        log.info("wpOrderDetailVO:{}", JSONUtil.toJsonStr(wpOrderDetailVO));
+        return wpOrderDetailVO;
     }
 
     public static CreateOrderResponseVO orderCreate() {
