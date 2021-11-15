@@ -52,7 +52,7 @@ public class WpMain {
         CONFIG_MAP.put(MERCHANT_CODE, WpConfig.getStr(group, WpConfig.MY_MERCHANT_CODE));
         CONFIG_MAP.put(API_VERSION, "V4.0.0");
         CONFIG_MAP.put(PROXY_URL, "");
-        CONFIG_MAP.put(HTTP_MAX_TIMEOUT, 20000);
+        CONFIG_MAP.put(HTTP_MAX_TIMEOUT, 10000);
     }
 
     public static void main(String[] args) {
